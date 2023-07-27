@@ -42,6 +42,7 @@ class Chapter : protected Question {
       } else {
         std::cerr << "In Chapter::read(): missing has_question_string";
       }
+      file.close();
     }
 
   public:
@@ -51,6 +52,9 @@ class Chapter : protected Question {
     }
     Chapter* start() {
       print_chapter_content(content);
+      if(!has_question) {
+        return nullptr;
+      }
       Pair<int, int> ask_res = ask();
       while(ask_res == std::make_pair(-1, -1)) {
         ask_res = ask();

@@ -3,7 +3,7 @@
 #include "story.hpp"
 
 int main() {
-  Story story(std::make_pair(3, 3));
+  Story story(std::make_pair(6, 74)); // puts the maximum value of n and m
   story.start();
 
   std::system("pause");
