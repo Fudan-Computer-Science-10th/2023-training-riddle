@@ -5,23 +5,26 @@
 #include <utility>
 #include "chapter.hpp"
 
-#define Vec std::vector
+#define Vector std::vector
 #define Pair std::pair
 
 class Story : protected Chapter {
   private:
     Chapter *now_chapter;
-    Vec<Vec<bool>> is_chapter_visited;
+    Vector<Vector<bool>> is_chapter_visited;
 
   public:
-    Story() : Chapter(std::make_pair(0, 0)) {
+    Story(Pair<int, int> total_info_count) : Chapter(std::make_pair(0, 0)) {
       now_chapter = new Chapter(std::make_pair(0, 0));
+      is_chapter_visited = Vector<Vector<bool>>(total_info_count.first, Vector<bool>(total_info_count.second, false));
     }
     ~Story() { delete now_chapter; }
     Story(const Story& other) : Chapter(other), now_chapter(other.now_chapter), is_chapter_visited(other.is_chapter_visited) {}
     void start() {
       while(now_chapter != nullptr) {
         Chapter *next_chapter = now_chapter->start();
+        Pair<int, int> now_chapter_info = now_chapter->get_chapter_info();
+        is_chapter_visited[now_chapter_info.first][now_chapter_info.second] = true;
         delete now_chapter;
         now_chapter = next_chapter;
       }

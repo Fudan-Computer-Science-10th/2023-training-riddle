@@ -18,6 +18,7 @@ class Chapter : protected Question {
   private:
     String chapter_name;
     Vector<String> content;
+    Pair<int, int> chapter_info;
     bool available;
     void read() {
       String file_name = chapter_name + ".txt";
@@ -34,16 +35,20 @@ class Chapter : protected Question {
     }
 
   public:
-    Chapter(Pair<int, int> info) {
+    Chapter(Pair<int, int> info) : chapter_info(info) {
       chapter_name = "ch_" + to_string(info.first) + "_" + to_string(info.second);
       read();
     }
     Chapter* start() {
       print_chapter_content(content);
-      return new Chapter(ask());
+      Pair<int, int> ask_res = ask();
+      while(ask_res == std::make_pair(-1, -1)) {
+        ask_res = ask();
+      }
+      return new Chapter(ask_res);
     }
-    Chapter(const Chapter&);
-};  // for compile testing
+    Pair<int, int> get_chapter_info() { return chapter_info; }
+};
 
 #undef Str
 #undef Vector

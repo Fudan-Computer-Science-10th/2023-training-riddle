@@ -1,2 +1,10 @@
-story.o: story.hpp chapter.hpp
-	g++ -c story.hpp
+clean:
+	main.o
+
+main.o: main.cpp
+	g++ -c main.cpp -o main.o
+
+output: main.o
+	g++ -O2 main.o -o output
+
+all: main.o output

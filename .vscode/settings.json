@@ -1,0 +1,10 @@
+{
+  "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+  "makefile.launchConfigurations": [
+    {
+      "cwd": "c:\\Users\\reviv\\Codes\\repo\\2023-trainning-riddle",
+      "binaryPath": "c:\\Users\\reviv\\Codes\\repo\\2023-trainning-riddle\\main",
+      "binaryArgs": []
+    }
+  ]
+}
