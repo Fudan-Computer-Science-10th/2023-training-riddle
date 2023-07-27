@@ -24,7 +24,7 @@ class Chapter : protected Question {
       String file_name = chapter_name + ".txt";
       std::ifstream file(file_name);
       if(!file.is_open() || file.bad()) {
-        std::cerr << "In Chpater::read(): cannot open file\n";
+        std::cerr << "In Chpapter::read(): cannot open file\n";
         return;
       }
       while(!file.eof()) {
