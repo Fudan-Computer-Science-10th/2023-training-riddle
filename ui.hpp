@@ -12,12 +12,15 @@
 
 void print_chapter_content(Vector<String>& content) {
   String tmp;
-  for(auto& c : content) {
-    Cout << c << "\n\n";
+  for (auto& c : content) {
+    Cout << c << "\n";
     std::getline(Cin, tmp);
   }
 }
-
+void print_question_content(String STR, Vector<String>& content) {
+  Cout << STR << '\n';
+  for (auto & i : content) Cout << i << "\n\n";
+}
 #undef Cout
 #undef Cin
 #undef Vector
