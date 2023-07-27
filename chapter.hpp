@@ -19,7 +19,7 @@ class Chapter : protected Question {
     String chapter_name;
     Vector<String> content;
     Pair<int, int> chapter_info;
-    bool available;
+    bool available, has_question;
     void read() {
       String file_name = chapter_name + ".txt";
       std::ifstream file(file_name);
@@ -29,8 +29,18 @@ class Chapter : protected Question {
       }
       while(!file.eof()) {
         String line;
+        if(line == "#") {
+          break;
+        }
         std::getline(file, line);
         content.push_back(line);
+      }
+      if(!file.eof()) {
+        String has_question_string;
+        std::getline(file, has_question_string);
+        has_question = (has_question_string == "1");
+      } else {
+        std::cerr << "In Chapter::read(): missing has_question_string";
       }
     }
 
@@ -50,8 +60,9 @@ class Chapter : protected Question {
     Pair<int, int> get_chapter_info() { return chapter_info; }
 };
 
-#undef Str
+#undef String
 #undef Vector
 #undef to_string
+#undef Pair
 
 #endif

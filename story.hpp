@@ -3,15 +3,19 @@
 
 #include <vector>
 #include <utility>
+#include <string>
+#include <fstream>
 #include "chapter.hpp"
 
 #define Vector std::vector
 #define Pair std::pair
+#define String std::string
 
 class Story : protected Chapter {
   private:
     Chapter *now_chapter;
     Vector<Vector<bool>> is_chapter_visited;
+    const String GAME_LOG_FN = "2023-trainning-riddle.log";
 
   public:
     Story(Pair<int, int> total_info_count) : Chapter(std::make_pair(0, 0)) {
@@ -31,7 +35,9 @@ class Story : protected Chapter {
     }
 };
 
-#undef Vec
+#undef Vector
+#undef Pair
+#undef String
 
 #endif
 
