@@ -19,7 +19,7 @@ class Story {
     const String GAME_LOG_FN = "2023-trainning-riddle.log";
 
     void record_game_log(Pair<int, int> now_chapter_info) {
-      std::ofstream file(GAME_LOG_FN);
+      std::ofstream file(GAME_LOG_FN, std::ios::app);
       is_chapter_visited[now_chapter_info.first][now_chapter_info.second] = true;
       std::time_t rawtime;
       std::tm *ptm;
