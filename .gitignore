@@ -7,3 +7,6 @@
 
 # Testing
 *.log
+
+# Releases
+*.zip
