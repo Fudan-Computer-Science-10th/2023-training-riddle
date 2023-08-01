@@ -1,1 +1,6 @@
-type3
+3
+Extract "riddle_natsu_2.7z", password:FdhsCpp112
+#
+LOTUS
+0
+2 1

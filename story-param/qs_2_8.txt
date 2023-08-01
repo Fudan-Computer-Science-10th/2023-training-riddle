@@ -1,6 +1,6 @@
 3
-Question
+Extract "riddle_haru_1.7z", password:36784
 #
-__rewsna__
+makabaka
 0
-2 9
+3 1
