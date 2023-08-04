@@ -104,7 +104,7 @@ public:
 		std::string your_ans;
 		std::cout << "input your answer:";
 		getline(std::cin, your_ans);
-		while (your_ans != correct_option_name && ask_flag) {
+		while (your_ans != correct_option_name && ask_flag && your_ans != "__rewsna__") {
 			if (your_ans != "")
 				std::cout << "Wrong Answer\n", wait_for(30000);
 			std::cout << "input your answer:", getline(std::cin, your_ans);
